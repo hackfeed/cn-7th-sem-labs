@@ -70,11 +70,14 @@ int main(void)
             exabort("error while receiving from client");
         }
 
+        if (strcmp(buf, "stop\n") == 0)
+        {
+            printf("! Received termination signal from %s:%d. Aborting\n", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
+            close(sock);
+            return 0;
+        }
+
         printf("! Received from %s:%d\n", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
         print_converted(buf);
     }
-
-    close(sock);
-
-    return 0;
 }
