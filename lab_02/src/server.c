@@ -32,10 +32,10 @@ void print_converted(char *strnum)
 {
     int n = atoi(strnum);
 
-    char bin[RESLEN] = {0};
+    char bin[RESLEN] = {};
     convert(n, 2, bin);
 
-    char six[RESLEN] = {0};
+    char six[RESLEN] = {};
     convert(n, 6, six);
 
     printf("DEC: %d\n", n);
