@@ -34,7 +34,6 @@ int main(void)
     }
 
     printf("Input message to be delivered: ");
-
     fgets(buf, MSGLEN, stdin);
     if (sendto(sock, buf, MSGLEN, 0, (struct sockaddr *)&server_addr, slen) == -1)
     {

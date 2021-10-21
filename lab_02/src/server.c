@@ -31,18 +31,13 @@ int convert(int num, int base, char *res)
 void print_converted(char *strnum)
 {
     int n = atoi(strnum);
-
     char bin[RESLEN] = {};
-    convert(n, 2, bin);
-
     char six[RESLEN] = {};
+
+    convert(n, 2, bin);
     convert(n, 6, six);
 
-    printf("DEC: %d\n", n);
-    printf("BIN: %s\n", bin);
-    printf("OCT: %o\n", n);
-    printf("HEX: %x\n", n);
-    printf("SIX: %s\n", six);
+    printf("DEC: %d\nBIN: %s\nOCT: %o\nHEX: %x\nSIX: %s\n", n, bin, n, n, six);
 }
 
 int main(void)
@@ -59,7 +54,6 @@ int main(void)
     }
 
     memset((char *)&server_addr, 0, sizeof(server_addr));
-
     server_addr.sin_family = AF_INET;
     server_addr.sin_port = htons(PORT);
     server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -77,7 +71,6 @@ int main(void)
         }
 
         printf("! Received from %s:%d\n", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
-
         print_converted(buf);
     }
 
